@@ -4,56 +4,55 @@
 <meta charset="UTF-8">
 <title>For Sakshi 💖</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
-  padding: 80px 20px;
+  padding: 90px 20px;
   background: linear-gradient(135deg, #ffe4ec, #ffd1dc);
   text-align: center;
   overflow-x: hidden;
   color: #b1124d;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Headings */
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 44px;
-  animation: fadeDown 1.5s ease;
-}
-h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 42px;
-  margin: 15px 0 40px;
-  animation: glow 3s ease-in-out infinite;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(-20px);
 }
 
-/* Text container */
-.text-box {
+/* Handwritten name */
+svg {
+  width: 320px;
+  margin: 20px auto 50px;
+}
+path {
+  fill: none;
+  stroke: #ff5c8a;
+  stroke-width: 3;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 4s ease forwards;
+}
+
+/* Text sections */
+.section {
   max-width: 760px;
-  margin: auto;
-}
-
-/* Animated text lines */
-.line {
-  font-family: 'Poppins', sans-serif;
+  margin: 80px auto;
   font-size: 21px;
   line-height: 1.8;
   opacity: 0;
-  transform: translateY(20px);
-  animation: reveal 1s ease forwards;
+  transform: translateY(30px);
 }
-.line:nth-child(1) { animation-delay: 0.5s; }
-.line:nth-child(2) { animation-delay: 1.5s; }
-.line:nth-child(3) { animation-delay: 2.5s; }
-.line:nth-child(4) { animation-delay: 3.5s; }
 
-/* Highlight text */
 .highlight {
   font-family: 'Playfair Display', serif;
-  font-size: 23px;
   background: linear-gradient(90deg, #ff5c8a, #ff8fab);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -62,63 +61,66 @@ h2 {
 /* Button */
 a.button {
   display: inline-block;
-  margin-top: 55px;
+  margin-top: 60px;
   padding: 18px 42px;
   background: #ff5c8a;
   color: white;
   text-decoration: none;
-  font-family: 'Poppins', sans-serif;
   font-size: 20px;
   border-radius: 40px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
 }
-a.button:hover {
-  transform: scale(1.05);
-}
-
-/* Falling hearts */
-.heart {
-  position: fixed;
-  top: -10px;
-  font-size: 20px;
-  animation: fall linear infinite;
-}
+a.button:hover { transform: scale(1.05); }
 
 /* Dolphins */
 .dolphin {
   position: fixed;
   font-size: 34px;
-  animation: orbit 20s linear infinite;
+  animation: orbit 22s linear infinite;
   opacity: 0.8;
 }
 .d1 { top: 20%; left: 15%; }
 .d2 { bottom: 20%; right: 15%; animation-delay: 6s; }
 
+/* Falling hearts */
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 18px;
+  animation: fall linear infinite;
+}
+
+/* Sparkles */
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  animation: float 6s linear infinite;
+}
+
 /* Animations */
-@keyframes fadeDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes reveal {
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes glow {
-  0%,100% { text-shadow: 0 0 8px #ff9bb8; }
-  50% { text-shadow: 0 0 18px #ff5c8a; }
-}
-@keyframes fall {
-  0% { transform: translateY(-10px); opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
 }
 @keyframes orbit {
   0% { transform: rotate(0deg) translateX(70px) rotate(0deg); }
   100% { transform: rotate(360deg) translateX(70px) rotate(-360deg); }
 }
+@keyframes fall {
+  0% { transform: translateY(-10px); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+@keyframes float {
+  0% { transform: translateY(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-120px); opacity: 0; }
+}
 
 footer {
-  margin-top: 70px;
-  font-family: 'Poppins', sans-serif;
+  margin-top: 90px;
   font-size: 15px;
   opacity: 0.8;
 }
@@ -127,14 +129,26 @@ footer {
 
 <body>
 
-<h1>Happy Birthday & Happy Valentine’s Day</h1>
-<h2>Sakshi 💕</h2>
+<h1 id="title">Happy Birthday & Happy Valentine’s Day</h1>
 
-<div class="text-box">
-  <div class="line">Sakshi, you are not just someone I love.</div>
-  <div class="line">You are my <span class="highlight">safe place</span>, my peace, my calm.</div>
-  <div class="line">Every smile of yours feels like magic,</div>
-  <div class="line">and every moment with you feels like home 💗</div>
+<!-- Handwritten Name -->
+<svg viewBox="0 0 500 120">
+  <path d="M20,80 Q60,10 100,80 T180,80 Q220,10 260,80 T340,80 Q380,10 420,80" />
+</svg>
+
+<div class="section">
+Sakshi, you are not just someone I love —  
+you are my <span class="highlight">safe place</span>, my calm, my happiness.
+</div>
+
+<div class="section">
+Every smile of yours feels like magic,  
+and every moment with you feels like home.
+</div>
+
+<div class="section">
+My heart chooses you —  
+today, tomorrow, and always 💕
 </div>
 
 <a class="button" href="PASTE-YOUR-CANVA-VIEW-LINK-HERE" target="_blank">
@@ -149,18 +163,56 @@ Made with love, only for you 🌷
 <div class="dolphin d1">🐬</div>
 <div class="dolphin d2">🐬</div>
 
-<!-- Falling hearts -->
+<!-- Scroll reveal -->
 <script>
-const hearts = ["💗","💕","💖","💘","❤️"];
+const sections = document.querySelectorAll('.section');
+const title = document.getElementById('title');
+
+function reveal() {
+  const trigger = window.innerHeight * 0.85;
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if (top < trigger) {
+      sec.style.opacity = 1;
+      sec.style.transform = "translateY(0)";
+      sec.style.transition = "1.2s ease";
+    }
+  });
+
+  if (title.getBoundingClientRect().top < trigger) {
+    title.style.opacity = 1;
+    title.style.transform = "translateY(0)";
+    title.style.transition = "1.2s ease";
+  }
+}
+window.addEventListener('scroll', reveal);
+reveal();
+</script>
+
+<!-- Hearts -->
+<script>
+const hearts = ["💗","💕","💖"];
 setInterval(() => {
   const h = document.createElement("div");
   h.className = "heart";
   h.innerText = hearts[Math.floor(Math.random()*hearts.length)];
   h.style.left = Math.random()*100 + "vw";
-  h.style.animationDuration = (3 + Math.random()*3) + "s";
+  h.style.animationDuration = (4 + Math.random()*3) + "s";
   document.body.appendChild(h);
-  setTimeout(() => h.remove(), 6000);
-}, 280);
+  setTimeout(() => h.remove(), 7000);
+}, 400);
+</script>
+
+<!-- Sparkles -->
+<script>
+setInterval(() => {
+  const s = document.createElement("div");
+  s.className = "sparkle";
+  s.style.left = Math.random()*100 + "vw";
+  s.style.top = (60 + Math.random()*40) + "vh";
+  document.body.appendChild(s);
+  setTimeout(() => s.remove(), 6000);
+}, 600);
 </script>
 
 </body>
