@@ -1,120 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For Sakshi 💕</title>
-  <style>
-    body {
-      background: linear-gradient(to bottom right, #ffe4ec, #ffd1dc);
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      padding: 60px 20px;
-      color: #c2185b;
-      overflow-x: hidden;
-    }
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 28px;
-      margin-bottom: 30px;
-    }
-    p {
-      font-size: 20px;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.7;
-    }
-    .flowers {
-      font-size: 42px;
-      margin: 20px 0;
-    }
-    a {
-      display: inline-block;
-      margin-top: 45px;
-      padding: 18px 38px;
-      background: #ff5c8a;
-      color: white;
-      text-decoration: none;
-      font-size: 22px;
-      border-radius: 40px;
-      font-weight: bold;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-    a:hover {
-      background: #ff3b6f;
-    }
-    footer {
-      margin-top: 55px;
-      font-size: 16px;
-      opacity: 0.85;
-    }
+<meta charset="UTF-8">
+<title>For Sakshi 💖</title>
 
-    /* Falling hearts */
-    .heart {
-      position: fixed;
-      top: -10px;
-      font-size: 20px;
-      animation: fall linear infinite;
-      color: #ff5c8a;
-    }
+<style>
+body {
+  margin: 0;
+  padding: 70px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #ffe4ec, #ffd1dc);
+  text-align: center;
+  color: #c2185b;
+  overflow-x: hidden;
+}
 
-    @keyframes fall {
-      0% { transform: translateY(-10px); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
-    }
-  </style>
+/* Headings */
+h1 { font-size: 42px; margin-bottom: 10px; }
+h2 { font-size: 28px; margin-bottom: 30px; }
+
+/* Typewriter text */
+#typewriter {
+  font-size: 21px;
+  max-width: 720px;
+  margin: auto;
+  line-height: 1.8;
+  min-height: 160px;
+}
+
+/* Flowers */
+.flowers { font-size: 42px; margin: 25px 0; }
+
+/* Button */
+a.button {
+  display: inline-block;
+  margin-top: 45px;
+  padding: 18px 40px;
+  background: #ff5c8a;
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  border-radius: 40px;
+  font-weight: bold;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Heart-shaped frame (decorative) */
+.heart-frame {
+  width: 120px;
+  height: 120px;
+  background: #ff8fb1;
+  position: relative;
+  margin: 40px auto;
+  transform: rotate(-45deg);
+}
+.heart-frame::before,
+.heart-frame::after {
+  content: "";
+  width: 120px;
+  height: 120px;
+  background: #ff8fb1;
+  border-radius: 50%;
+  position: absolute;
+}
+.heart-frame::before {
+  top: -60px;
+  left: 0;
+}
+.heart-frame::after {
+  left: 60px;
+  top: 0;
+}
+
+/* Falling hearts */
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 22px;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(-10px); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Dolphins swimming in circles */
+.dolphin {
+  position: fixed;
+  font-size: 36px;
+  animation: circle 18s linear infinite;
+  opacity: 0.8;
+}
+.d1 { top: 15%; left: 15%; }
+.d2 { bottom: 15%; right: 15%; animation-delay: 4s; }
+
+@keyframes circle {
+  0%   { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+footer {
+  margin-top: 60px;
+  font-size: 16px;
+  opacity: 0.85;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Background Music -->
-  <audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  </audio>
+<div class="flowers">🌷🌷🌷</div>
 
-  <div class="flowers">🌷🌷🌷</div>
+<h1>Happy Birthday & Happy Valentine’s Day 💖</h1>
+<h2>My Sweet Sakshi 💕</h2>
 
-  <h1>Happy Birthday & Happy Valentine’s Day 💖</h1>
-  <h2>My Sweet <strong>Sakshi</strong> 💕</h2>
+<div id="typewriter"></div>
 
-  <p>
-    Sakshi, this little page is made with all my heart, just for you.  
-    You are not just someone I love — you are my happiness, my peace,  
-    and the most beautiful part of my life.
-    <br><br>
-    Every time you smile, my world feels lighter.  
-    Every moment with you becomes a memory I want to keep forever.  
-    I may not always say it perfectly, but please know this —
-    my heart chooses you, every single day.
-    <br><br>
-    This is just a small surprise,  
-    but my love for you is endless, deep, and always true 💗
-  </p>
+<div class="heart-frame"></div>
 
-  <div class="flowers">🌷🌷🌷</div>
+<a class="button" href="PASTE-YOUR-CANVA-VIEW-LINK-HERE" target="_blank">
+💌 Open Your Card
+</a>
 
-  <a href="PASTE-YOUR-CANVA-VIEW-LINK-HERE" target="_blank">
-    💌 Open Your Card
-  </a>
+<footer>
+Made with endless love, just for you 💗
+</footer>
 
-  <footer>
-    Made with endless love, just for you 💖
-  </footer>
+<!-- Dolphins -->
+<div class="dolphin d1">🐬</div>
+<div class="dolphin d2">🐬</div>
 
-  <!-- Falling hearts script -->
-  <script>
-    const hearts = ["💗","💕","💖","💘","❤️"];
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }, 300);
-  </script>
+<!-- Falling hearts -->
+<script>
+const hearts = ["💗","💕","💖","💘","❤️"];
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerText = hearts[Math.floor(Math.random()*hearts.length)];
+  h.style.left = Math.random()*100 + "vw";
+  h.style.animationDuration = (3 + Math.random()*3) + "s";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 6000);
+}, 260);
+</script>
+
+<!-- Typewriter animation -->
+<script>
+const text = `Sakshi, you are not just someone I love —
+you are my safe place, my peace, and my happiest thought.
+
+Every smile of yours feels like magic,
+every moment with you feels like home.
+
+I may not always say it perfectly,
+but my heart chooses you,
+today, tomorrow, and always 💕`;
+
+let i = 0;
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typewriter").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 45);
+  }
+}
+typeWriter();
+</script>
 
 </body>
 </html>
