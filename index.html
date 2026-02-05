@@ -3,219 +3,242 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sakshi ❤️ A Love Story</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<title>Sakshi — Desire</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(180deg,#120017,#2b0033,#000);
+  background:#060006;
   color:#fff;
-  overflow-x:hidden;
+  overflow:hidden;
 }
 
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:radial-gradient(circle at top,#ff4d6d22,transparent 60%),
-             radial-gradient(circle at bottom,#ff85a122,transparent 60%);
-  pointer-events:none;
-}
-}
-
+/* pages */
 .page{
   min-height:100vh;
   display:none;
   align-items:center;
   justify-content:center;
-  padding:40px 20px;
   text-align:center;
-  position:relative;
-  backdrop-filter:blur(6px);
-}
+  padding:40px 24px;
+  position:absolute;
+  inset:0;
 }
 .page.active{display:flex}
 
+/* typography */
 h1{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2.4rem,6vw,4.2rem);
-  margin-bottom:20px;
-  background:linear-gradient(135deg,#ff758f,#ffd6e0);
+  font-size:clamp(2.6rem,7vw,4.6rem);
+  letter-spacing:1px;
+  background:linear-gradient(135deg,#ff2f6d,#ff9aa2);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-}
 
 p{
-  font-size:clamp(1rem,3.5vw,1.2rem);
-  max-width:800px;
+  margin-top:24px;
+  font-size:clamp(1.1rem,4vw,1.3rem);
   line-height:1.8;
   opacity:.9;
 }
 
-button{
-  margin-top:30px;
-  padding:14px 36px;
-  border-radius:40px;
-  border:none;
-  background:linear-gradient(135deg,#ff758f,#ffb3c6);
-  color:#000;
-  font-weight:600;
-  cursor:pointer;
-  transition:.4s;
-}
-button:hover{transform:scale(1.1)}
-
-/* ambient particles */
-.star{
-  position:absolute;
-  width:2px;height:2px;
-  background:#fff;
+.tap{
+  margin-top:50px;
+  font-size:.9rem;
+  letter-spacing:2px;
   opacity:.6;
-  animation:twinkle 3s infinite ease-in-out;
 }
-@keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
 
-/* dragon spirits */
-.spirit{
+/* ambient glow */
+.blur{
   position:absolute;
-  width:140px;height:90px;
-  border-radius:60% 40% 50% 50%;
-  filter:blur(0.2px);
-  animation:fly 25s linear infinite;
+  width:420px;height:420px;
+  background:radial-gradient(circle,#ff2f6d55,transparent 60%);
+  filter:blur(90px);
+  animation:float 18s ease-in-out infinite;
 }
-.spirit.dark{background:linear-gradient(135deg,#111,#000)}
-.spirit.light{background:linear-gradient(135deg,#ff8fab,#ffd6e0);animation-duration:32s}
-
-@keyframes fly{
-  0%{transform:translate(-30vw,40vh) scale(.7) rotate(5deg);opacity:.6}
-  50%{transform:translate(50vw,-10vh) scale(1) rotate(-5deg);opacity:1}
-  100%{transform:translate(120vw,30vh) scale(.8) rotate(6deg);opacity:.6}
-}
-  50%{transform:translate(50vw,-20vh) scale(1)}
-  100%{transform:translate(120vw,20vh) scale(.8)}
+.blur.b2{
+  background:radial-gradient(circle,#ff85a155,transparent 60%);
+  animation-duration:24s;
 }
 
-/* fireworks */
-.firework{
+@keyframes float{
+  0%{transform:translate(-20%,20%)}
+  50%{transform:translate(40%,-20%)}
+  100%{transform:translate(-20%,20%)}
+}
+
+/* floating emojis */
+.floating{
+  position:absolute;
+  font-size:22px;
+  animation:rise 8s linear infinite;
+  opacity:.8;
+}
+
+@keyframes rise{
+  from{transform:translateY(0) scale(.8);opacity:1}
+  to{transform:translateY(-120vh) scale(1.4);opacity:0}
+}
+
+/* sparkles */
+.sparkle{
   position:absolute;
   width:6px;height:6px;
   background:#fff;
   border-radius:50%;
-  animation:explode 1.5s infinite ease-out;
-}
-@keyframes explode{
-  0%{transform:scale(0);opacity:1}
-  100%{transform:scale(20);opacity:0}
+  box-shadow:0 0 12px #ff9aa2;
+  animation:twinkle 2s infinite alternate;
 }
 
-footer{
-  position:absolute;
-  bottom:20px;
-  width:100%;
-  opacity:.7;
+@keyframes twinkle{
+  from{opacity:.2}
+  to{opacity:1}
+}
+
+/* typewriter */
+.type span{
+  opacity:0;
+  animation:reveal .04s forwards;
+}
+@keyframes reveal{to{opacity:1}}
+
+/* final pulse */
+.pulse{
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{text-shadow:0 0 10px #ff2f6d}
+  50%{text-shadow:0 0 35px #ff2f6d}
+  100%{text-shadow:0 0 10px #ff2f6d}
 }
 </style>
 </head>
 <body>
 
-<audio id="music" loop preload="auto">
-  <source src="https://cdn.pixabay.com/download/audio/2023/03/30/audio_7c5c63e3a2.mp3" type="audio/mpeg">
+<audio id="music" preload="auto">
+  <source src="https://cdn.pixabay.com/download/audio/2023/02/14/audio_2b1a8f9d9e.mp3" type="audio/mpeg">
 </audio>
 
 <!-- PAGE 1 -->
 <section class="page active" id="p1">
   <div>
-    <h1>Sakshi</h1>
-    <p>Some people are not chapters, they are the whole story.</p>
-    <button onclick="go(2)">Begin ✨</button>
+    <h1>Sakshi ✨</h1>
+    <p>I wasn’t looking for this.</p>
+    <div class="tap">TAP</div>
   </div>
+  <div class="blur"></div>
 </section>
 
 <!-- PAGE 2 -->
 <section class="page" id="p2">
   <div>
-    <h1>The First Spark</h1>
-    <p>The moment when two souls unknowingly choose each other.</p>
-    <button onclick="go(3)">Continue</button>
+    <h1 class="type" id="t2"></h1>
+    <div class="tap">TAP</div>
   </div>
+  <div class="blur b2"></div>
 </section>
 
 <!-- PAGE 3 -->
 <section class="page" id="p3">
   <div>
-    <h1>Through Every Storm</h1>
-    <p>Even the wildest skies feel safe when we fly together.</p>
-    <button onclick="go(4)">Fly On</button>
+    <h1 class="type" id="t3"></h1>
+    <p>💏</p>
+    <div class="tap">TAP</div>
   </div>
-  <div class="spirit dark"></div>
-  <div class="spirit light"></div>
 </section>
 
 <!-- PAGE 4 -->
 <section class="page" id="p4">
   <div>
-    <h1>A Thousand Tomorrows</h1>
-    <p>Dreams, places, laughs — all waiting for us.</p>
-    <button onclick="go(5)">Almost There</button>
+    <h1>It felt dangerous 💖</h1>
+    <p>And I didn’t stop.</p>
+    <div class="tap">TAP</div>
   </div>
 </section>
 
 <!-- PAGE 5 -->
 <section class="page" id="p5">
   <div>
-    <h1>My Constant</h1>
-    <p>You are my calm, my chaos, my home.</p>
-    <button onclick="go(6)">One Last Thing ❤️</button>
+    <h1>So this is desire 🌸</h1>
+    <p>Quiet. Certain. Yours.</p>
+    <div class="tap">TAP</div>
   </div>
 </section>
 
 <!-- PAGE 6 -->
 <section class="page" id="p6">
   <div>
-    <h1>I Love You Sakshi</h1>
-    <p>Happy Birthday & Happy Valentine’s Day ✨</p>
-    <button onclick="go(1)">Replay 🔁</button>
+    <h1 class="pulse">Come closer. 💞</h1>
+    <p>Happy Birthday 🎂 & Valentine’s Day ❤️</p>
   </div>
-  <footer>Forever yours ❤️</footer>
 </section>
 
 <script>
+const pages=[...document.querySelectorAll('.page')];
+let i=0;
 const music=document.getElementById('music');
 
-function startMusic(){
-  music.volume=0.6;
-  music.play().catch(()=>{});
+function show(n){
+  pages.forEach(p=>p.classList.remove('active'));
+  pages[n].classList.add('active');
 }
 
-document.body.addEventListener('touchstart',startMusic,{once:true});
-document.body.addEventListener('click',startMusic,{once:true});
-
-function go(n){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('p'+n).classList.add('active');
+function typeText(el,text){
+  el.innerHTML='';
+  [...text].forEach((c,i)=>{
+    const s=document.createElement('span');
+    s.textContent=c;
+    s.style.animationDelay=i*0.05+'s';
+    el.appendChild(s);
+  });
 }
 
-for(let i=0;i<90;i++){
-  const s=document.createElement('div');
-  s.className='star';
-  s.style.left=Math.random()*100+'vw';
-  s.style.top=Math.random()*100+'vh';
-  s.style.animationDelay=Math.random()*3+'s';
-  document.body.appendChild(s);
+typeText(document.getElementById('t2'),'But I felt you before I understood it.');
+typeText(document.getElementById('t3'),'Every look stayed longer than it should.');
+
+/* navigation */
+function next(){
+  if(i===0){
+    music.volume=0.5;
+    music.play().catch(()=>{});
+  }
+  i=Math.min(i+1,pages.length-1);
+  show(i);
 }
 
-music.volume=0.6;
+document.body.addEventListener('click',next);
+document.body.addEventListener('touchstart',next);
+
+/* floating hearts, flowers, cakes */
+const emojis = ['❤️','💖','✨','🌸','🎂'];
 
 setInterval(()=>{
-  const f=document.createElement('div');
-  f.className='firework';
-  f.style.left=Math.random()*100+'vw';
-  f.style.top=Math.random()*60+'vh';
-  document.getElementById('p6').appendChild(f);
-  setTimeout(()=>f.remove(),1500);
-},800);
+  const el=document.createElement('div');
+  el.className='floating';
+  el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+  el.style.left=Math.random()*100+'vw';
+  el.style.bottom='-20px';
+  el.style.fontSize=(18+Math.random()*20)+'px';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),8000);
+},600);
+
+/* sparkles */
+for(let i=0;i<40;i++){
+  const s=document.createElement('div');
+  s.className='sparkle';
+  s.style.left=Math.random()*100+'vw';
+  s.style.top=Math.random()*100+'vh';
+  s.style.animationDelay=Math.random()*2+'s';
+  document.body.appendChild(s);
+}
 </script>
+
 </body>
 </html>
