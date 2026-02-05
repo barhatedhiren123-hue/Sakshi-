@@ -1,219 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>For Sakshi 💖</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday & Valentine – Sakshi ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #0b1d3a, #000);
+      color: #fff;
+      overflow-x: hidden;
+    }
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    /* ---------- COMMON ---------- */
+    .page {
+      min-height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+    .page.active { display: flex; }
 
-<style>
-body {
-  margin: 0;
-  padding: 90px 20px;
-  background: linear-gradient(135deg, #ffe4ec, #ffd1dc);
-  text-align: center;
-  overflow-x: hidden;
-  color: #b1124d;
-  font-family: 'Poppins', sans-serif;
-}
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      margin-bottom: 20px;
+      animation: glow 2.5s ease-in-out infinite alternate;
+    }
 
-/* Headings */
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 44px;
-  margin-bottom: 10px;
-  opacity: 0;
-  transform: translateY(-20px);
-}
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff4d6d; }
+      to   { text-shadow: 0 0 30px #ff85a1; }
+    }
 
-/* Handwritten name */
-svg {
-  width: 320px;
-  margin: 20px auto 50px;
-}
-path {
-  fill: none;
-  stroke: #ff5c8a;
-  stroke-width: 3;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: draw 4s ease forwards;
-}
+    button {
+      margin-top: 30px;
+      padding: 14px 34px;
+      border-radius: 40px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff4d6d, #ff85a1);
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(255,77,109,0.4);
+      transition: transform .3s, box-shadow .3s;
+    }
+    button:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(255,77,109,0.6);
+    }
 
-/* Text sections */
-.section {
-  max-width: 760px;
-  margin: 80px auto;
-  font-size: 21px;
-  line-height: 1.8;
-  opacity: 0;
-  transform: translateY(30px);
-}
+    /* ---------- STARS ---------- */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      opacity: .8;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+    @keyframes twinkle {
+      0%,100% { opacity: .2; }
+      50% { opacity: 1; }
+    }
 
-.highlight {
-  font-family: 'Playfair Display', serif;
-  background: linear-gradient(90deg, #ff5c8a, #ff8fab);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    /* ---------- DRAGONS (INSPIRED SILHOUETTES) ---------- */
+    .dragon {
+      position: absolute;
+      width: 120px;
+      height: 80px;
+      background: radial-gradient(circle at 30% 50%, #222, #000);
+      border-radius: 60% 40% 50% 50%;
+      animation: fly 18s linear infinite;
+      filter: drop-shadow(0 0 15px rgba(0,0,0,.8));
+    }
 
-/* Button */
-a.button {
-  display: inline-block;
-  margin-top: 60px;
-  padding: 18px 42px;
-  background: #ff5c8a;
-  color: white;
-  text-decoration: none;
-  font-size: 20px;
-  border-radius: 40px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-}
-a.button:hover { transform: scale(1.05); }
+    .dragon::before {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 40px;
+      background: inherit;
+      left: -40px;
+      top: 20px;
+      border-radius: 60% 40% 50% 50%;
+      transform: rotate(-15deg);
+    }
 
-/* Dolphins */
-.dolphin {
-  position: fixed;
-  font-size: 34px;
-  animation: orbit 22s linear infinite;
-  opacity: 0.8;
-}
-.d1 { top: 20%; left: 15%; }
-.d2 { bottom: 20%; right: 15%; animation-delay: 6s; }
+    .dragon.pink {
+      background: radial-gradient(circle at 30% 50%, #ff7aa2, #c9184a);
+      animation-duration: 22s;
+    }
 
-/* Falling hearts */
-.heart {
-  position: fixed;
-  top: -10px;
-  font-size: 18px;
-  animation: fall linear infinite;
-}
+    @keyframes fly {
+      0%   { transform: translateX(-150px) translateY(0) scale(.9); }
+      50%  { transform: translateX(50vw) translateY(-80px) scale(1); }
+      100% { transform: translateX(110vw) translateY(40px) scale(.9); }
+    }
 
-/* Sparkles */
-.sparkle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: rgba(255,255,255,0.8);
-  border-radius: 50%;
-  animation: float 6s linear infinite;
-}
+    /* ---------- HEARTS ---------- */
+    .heart {
+      position: absolute;
+      color: #ff4d6d;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: .8;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0) scale(.8); opacity: 1; }
+      to   { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+    }
 
-/* Animations */
-@keyframes draw {
-  to { stroke-dashoffset: 0; }
-}
-@keyframes orbit {
-  0% { transform: rotate(0deg) translateX(70px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(70px) rotate(-360deg); }
-}
-@keyframes fall {
-  0% { transform: translateY(-10px); opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
-@keyframes float {
-  0% { transform: translateY(0); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-120px); opacity: 0; }
-}
+    /* ---------- PAGE 2 ---------- */
+    .story {
+      max-width: 800px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      animation: fadeUp 1.2s ease forwards;
+    }
 
-footer {
-  margin-top: 90px;
-  font-size: 15px;
-  opacity: 0.8;
-}
-</style>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: .9rem;
+      opacity: .7;
+    }
+  </style>
 </head>
-
 <body>
 
-<h1 id="title">Happy Birthday & Happy Valentine’s Day</h1>
+  <!-- PAGE 1 -->
+  <section class="page active" id="page1">
+    <div>
+      <h1>Happy Birthday & Valentine<br>My Sakshi ❤️</h1>
+      <p>Like two dragons flying together… our adventure is magical ✨</p>
+      <button onclick="goToPage(2)">Start Our Adventure 🐉</button>
+    </div>
 
-<!-- Handwritten Name -->
-<svg viewBox="0 0 500 120">
-  <path d="M20,80 Q60,10 100,80 T180,80 Q220,10 260,80 T340,80 Q380,10 420,80" />
-</svg>
+    <div class="dragon" style="top:20%; animation-delay:0s"></div>
+    <div class="dragon pink" style="top:55%; animation-delay:6s"></div>
+  </section>
 
-<div class="section">
-Sakshi, you are not just someone I love —  
-you are my <span class="highlight">safe place</span>, my calm, my happiness.
-</div>
+  <!-- PAGE 2 -->
+  <section class="page" id="page2">
+    <div class="story">
+      <h1>Sakshi, My Love 💕</h1>
+      <p>
+        Just like a fearless dragon rider and his loyal dragon,
+        our journey is full of trust, laughter, and endless adventures.
+        Every moment with you feels like flying under the stars,
+        discovering new worlds together.
+      </p>
+      <p>
+        On your birthday and this Valentine’s Day,
+        I promise to be by your side —
+        in every flight, every storm, and every beautiful sunrise.
+      </p>
+      <button onclick="goToPage(1)">Fly Back 🌙</button>
+    </div>
 
-<div class="section">
-Every smile of yours feels like magic,  
-and every moment with you feels like home.
-</div>
+    <footer>Made with ❤️ just for Sakshi</footer>
+  </section>
 
-<div class="section">
-My heart chooses you —  
-today, tomorrow, and always 💕
-</div>
-
-<a class="button" href="PASTE-YOUR-CANVA-VIEW-LINK-HERE" target="_blank">
-💌 Open Your Card
-</a>
-
-<footer>
-Made with love, only for you 🌷
-</footer>
-
-<!-- Dolphins -->
-<div class="dolphin d1">🐬</div>
-<div class="dolphin d2">🐬</div>
-
-<!-- Scroll reveal -->
-<script>
-const sections = document.querySelectorAll('.section');
-const title = document.getElementById('title');
-
-function reveal() {
-  const trigger = window.innerHeight * 0.85;
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if (top < trigger) {
-      sec.style.opacity = 1;
-      sec.style.transform = "translateY(0)";
-      sec.style.transition = "1.2s ease";
+  <script>
+    function goToPage(n) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page' + n).classList.add('active');
     }
-  });
 
-  if (title.getBoundingClientRect().top < trigger) {
-    title.style.opacity = 1;
-    title.style.transform = "translateY(0)";
-    title.style.transition = "1.2s ease";
-  }
-}
-window.addEventListener('scroll', reveal);
-reveal();
-</script>
+    /* Stars */
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      document.body.appendChild(star);
+    }
 
-<!-- Hearts -->
-<script>
-const hearts = ["💗","💕","💖"];
-setInterval(() => {
-  const h = document.createElement("div");
-  h.className = "heart";
-  h.innerText = hearts[Math.floor(Math.random()*hearts.length)];
-  h.style.left = Math.random()*100 + "vw";
-  h.style.animationDuration = (4 + Math.random()*3) + "s";
-  document.body.appendChild(h);
-  setTimeout(() => h.remove(), 7000);
-}, 400);
-</script>
-
-<!-- Sparkles -->
-<script>
-setInterval(() => {
-  const s = document.createElement("div");
-  s.className = "sparkle";
-  s.style.left = Math.random()*100 + "vw";
-  s.style.top = (60 + Math.random()*40) + "vh";
-  document.body.appendChild(s);
-  setTimeout(() => s.remove(), 6000);
-}, 600);
-</script>
+    /* Hearts */
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.bottom = '-20px';
+      heart.style.fontSize = (16 + Math.random() * 20) + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 500);
+  </script>
 
 </body>
 </html>
