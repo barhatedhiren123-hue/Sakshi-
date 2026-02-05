@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Sakshi 💕</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffe4ec, #ffd1dc);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 60px 20px;
+      color: #c2185b;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+    p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.7;
+    }
+    .flowers {
+      font-size: 42px;
+      margin: 20px 0;
+    }
+    a {
+      display: inline-block;
+      margin-top: 45px;
+      padding: 18px 38px;
+      background: #ff5c8a;
+      color: white;
+      text-decoration: none;
+      font-size: 22px;
+      border-radius: 40px;
+      font-weight: bold;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    a:hover {
+      background: #ff3b6f;
+    }
+    footer {
+      margin-top: 55px;
+      font-size: 16px;
+      opacity: 0.85;
+    }
+
+    /* Falling hearts */
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite;
+      color: #ff5c8a;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="flowers">🌷🌷🌷</div>
+
+  <h1>Happy Birthday & Happy Valentine’s Day 💖</h1>
+  <h2>My Sweet <strong>Sakshi</strong> 💕</h2>
+
+  <p>
+    Sakshi, this little page is made with all my heart, just for you.  
+    You are not just someone I love — you are my happiness, my peace,  
+    and the most beautiful part of my life.
+    <br><br>
+    Every time you smile, my world feels lighter.  
+    Every moment with you becomes a memory I want to keep forever.  
+    I may not always say it perfectly, but please know this —
+    my heart chooses you, every single day.
+    <br><br>
+    This is just a small surprise,  
+    but my love for you is endless, deep, and always true 💗
+  </p>
+
+  <div class="flowers">🌷🌷🌷</div>
+
+  <a href="PASTE-YOUR-CANVA-VIEW-LINK-HERE" target="_blank">
+    💌 Open Your Card
+  </a>
+
+  <footer>
+    Made with endless love, just for you 💖
+  </footer>
+
+  <!-- Falling hearts script -->
+  <script>
+    const hearts = ["💗","💕","💖","💘","❤️"];
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 300);
+  </script>
+
+</body>
+</html>
