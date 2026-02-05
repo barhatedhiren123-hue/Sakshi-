@@ -21,25 +21,25 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 40px 20px;
+      padding: 40px 16px;
       position: relative;
     }
     .page.active { display: flex; }
 
     h1 {
       font-family: 'Pacifico', cursive;
-      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-size: clamp(2rem, 6vw, 3.8rem);
       margin-bottom: 20px;
       animation: glow 2.5s ease-in-out infinite alternate;
     }
 
     @keyframes glow {
       from { text-shadow: 0 0 10px #ff4d6d; }
-      to   { text-shadow: 0 0 30px #ff85a1; }
+      to   { text-shadow: 0 0 35px #ff85a1; }
     }
 
     button {
-      margin-top: 30px;
+      margin-top: 26px;
       padding: 14px 34px;
       border-radius: 40px;
       border: none;
@@ -50,34 +50,44 @@
       box-shadow: 0 10px 30px rgba(255,77,109,0.4);
       transition: transform .3s, box-shadow .3s;
     }
-    button:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 20px 40px rgba(255,77,109,0.6);
-    }
+    button:hover { transform: scale(1.08); }
 
-    /* ---------- STARS ---------- */
-    .star {
+    /* ---------- PARALLAX STARS ---------- */
+    .stars, .stars2 {
       position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      opacity: .8;
-      animation: twinkle 3s infinite ease-in-out;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      background-repeat: repeat;
+      pointer-events: none;
     }
-    @keyframes twinkle {
-      0%,100% { opacity: .2; }
-      50% { opacity: 1; }
+    .stars {
+      background-image: radial-gradient(white 1px, transparent 1px);
+      background-size: 80px 80px;
+      animation: moveStars 120s linear infinite;
+      opacity: .6;
+    }
+    .stars2 {
+      background-image: radial-gradient(#ffb3c6 1px, transparent 1px);
+      background-size: 120px 120px;
+      animation: moveStars 200s linear infinite reverse;
+      opacity: .4;
     }
 
-    /* ---------- DRAGONS (INSPIRED SILHOUETTES) ---------- */
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 5000px; }
+    }
+
+    /* ---------- CINEMATIC DRAGONS ---------- */
     .dragon {
       position: absolute;
       width: 120px;
       height: 80px;
       background: radial-gradient(circle at 30% 50%, #222, #000);
       border-radius: 60% 40% 50% 50%;
-      animation: fly 18s linear infinite;
-      filter: drop-shadow(0 0 15px rgba(0,0,0,.8));
+      filter: drop-shadow(0 0 20px rgba(0,0,0,.8));
+      animation: curveFly 22s linear infinite;
     }
 
     .dragon::before {
@@ -89,63 +99,82 @@
       left: -40px;
       top: 20px;
       border-radius: 60% 40% 50% 50%;
-      transform: rotate(-15deg);
     }
 
     .dragon.pink {
       background: radial-gradient(circle at 30% 50%, #ff7aa2, #c9184a);
-      animation-duration: 22s;
+      animation-duration: 28s;
     }
 
-    @keyframes fly {
-      0%   { transform: translateX(-150px) translateY(0) scale(.9); }
-      50%  { transform: translateX(50vw) translateY(-80px) scale(1); }
-      100% { transform: translateX(110vw) translateY(40px) scale(.9); }
+    @keyframes curveFly {
+      0%   { transform: translate(-20vw, 20vh) rotate(5deg) scale(.8); }
+      25%  { transform: translate(20vw, -10vh) rotate(-10deg) scale(.95); }
+      50%  { transform: translate(60vw, 10vh) rotate(8deg) scale(1); }
+      75%  { transform: translate(90vw, -20vh) rotate(-6deg) scale(.95); }
+      100% { transform: translate(120vw, 30vh) rotate(5deg) scale(.8); }
     }
 
     /* ---------- HEARTS ---------- */
     .heart {
       position: absolute;
       color: #ff4d6d;
-      font-size: 20px;
       animation: floatUp 6s linear infinite;
       opacity: .8;
     }
     @keyframes floatUp {
-      from { transform: translateY(0) scale(.8); opacity: 1; }
-      to   { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+      from { transform: translateY(0) scale(.7); opacity: 1; }
+      to   { transform: translateY(-120vh) scale(1.3); opacity: 0; }
     }
 
-    /* ---------- PAGE 2 ---------- */
+    /* ---------- STORY CARD ---------- */
     .story {
-      max-width: 800px;
-      font-size: 1.1rem;
+      max-width: 820px;
+      font-size: clamp(1rem, 3.5vw, 1.15rem);
       line-height: 1.8;
-      background: rgba(255,255,255,0.05);
-      padding: 30px;
-      border-radius: 20px;
-      backdrop-filter: blur(6px);
-      animation: fadeUp 1.2s ease forwards;
+      background: rgba(255,255,255,0.08);
+      padding: 28px;
+      border-radius: 22px;
+      backdrop-filter: blur(8px);
+      animation: fadeUp 1.3s ease forwards;
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 0; transform: translateY(40px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     footer {
       position: absolute;
-      bottom: 20px;
+      bottom: 18px;
       width: 100%;
       text-align: center;
       font-size: .9rem;
       opacity: .7;
     }
+      
+    /* ---------- FIREWORKS ---------- */
+    .fireworks {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(255,255,255,.15), transparent 60%);
+      animation: flash 2s infinite;
+      pointer-events: none;
+    }
+    @keyframes flash {
+      0% { opacity: .2; }
+      50% { opacity: .6; }
+      100% { opacity: .2; }
+    }
   </style>
 </head>
 <body>
+  <audio id="bgm" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/10/26/audio_2c2f1c3f3c.mp3" type="audio/mpeg">
+  </audio>
 
-  <!-- PAGE 1 -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+
   <section class="page active" id="page1">
     <div>
       <h1>Happy Birthday & Valentine<br>My Sakshi ❤️</h1>
@@ -160,25 +189,74 @@
   <!-- PAGE 2 -->
   <section class="page" id="page2">
     <div class="story">
-      <h1>Sakshi, My Love 💕</h1>
+      <h1>Our First Flight 💫</h1>
       <p>
-        Just like a fearless dragon rider and his loyal dragon,
-        our journey is full of trust, laughter, and endless adventures.
-        Every moment with you feels like flying under the stars,
-        discovering new worlds together.
+        Like two dragons meeting under the moonlight,
+        our story began with curiosity, laughter, and magic.
+        Every conversation felt like the start of an adventure.
       </p>
-      <p>
-        On your birthday and this Valentine’s Day,
-        I promise to be by your side —
-        in every flight, every storm, and every beautiful sunrise.
-      </p>
-      <button onclick="goToPage(1)">Fly Back 🌙</button>
+      <button onclick="goToPage(3)">Next Adventure 🐉</button>
     </div>
+  </section>
 
-    <footer>Made with ❤️ just for Sakshi</footer>
+  <!-- PAGE 3 -->
+  <section class="page" id="page3">
+    <div class="story">
+      <h1>Flying Through Storms 🌧️</h1>
+      <p>
+        Not every sky is clear, but flying with you makes every storm easier.
+        Hand in hand, wing to wing — we never give up.
+      </p>
+      <button onclick="goToPage(4)">Keep Flying ✨</button>
+    </div>
+    <div class="dragon" style="top:30%"></div>
+    <div class="dragon pink" style="top:60%"></div>
+  </section>
+
+  <!-- PAGE 4 -->
+  <section class="page" id="page4">
+    <div class="story">
+      <h1>Endless Adventures 🌍</h1>
+      <p>
+        New places, new dreams, endless laughs.
+        With you, every world feels like home.
+      </p>
+      <button onclick="goToPage(5)">Almost There 💕</button>
+    </div>
+  </section>
+
+  <!-- PAGE 5 -->
+  <section class="page" id="page5">
+    <div class="story">
+      <h1>My Safe Place 💖</h1>
+      <p>
+        You are my calm, my strength, my forever flight partner.
+        No matter where life takes us, I choose you — always.
+      </p>
+      <button onclick="goToPage(6)">Final Surprise 🎆</button>
+    </div>
+  </section>
+
+  <!-- PAGE 6 FINAL -->
+  <section class="page" id="page6">
+    <div class="story">
+      <h1>I Love You Sakshi ❤️</h1>
+      <p>
+        Happy Birthday & Happy Valentine’s Day,
+        my beautiful dragon queen.
+      </p>
+      <button onclick="goToPage(1)">Replay Our Story 🔁</button>
+    </div>
+    <div class="fireworks"></div>
   </section>
 
   <script>
+    const music = document.getElementById('bgm');
+    document.body.addEventListener('click', () => {
+      music.volume = 0.4;
+      music.play().catch(()=>{});
+    }, { once:true });
+
     function goToPage(n) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page' + n).classList.add('active');
