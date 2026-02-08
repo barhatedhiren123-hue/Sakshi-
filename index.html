@@ -1,259 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sakshi — Forever</title>
+import { motion } from "framer-motion";
+import { Download, Building2, Hammer, Layers, GraduationCap, Award } from "lucide-react";
 
-<!-- GSAP -->
-<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+export default function Portfolio() {
+  return (
+    <div className="min-h-screen font-serif bg-slate-900 text-slate-100">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+      {/* HERO / NAME & CONTACT */}
+      <section className="relative h-screen flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1503387762-592deb58ef4e')] bg-cover bg-center">
+        <div className="absolute inset-0 bg-black/70" />
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="relative z-10 text-center px-6"
+        >
+          <h1 className="text-6xl md:text-7xl font-bold tracking-wide">DHIREN BARHATE</h1>
+          <p className="mt-4 text-xl text-slate-300">Site Engineer | Project Engineer | BIM Exposure</p>
+          <p className="mt-6 text-slate-400">
+            Pune, India · +91-9359830776 · barhatedhiren123@gmail.com
+          </p>
+          <p className="text-slate-400">linkedin.com/in/dhiren-barhate-80a78a147</p>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
+          <a
+            href="/Dhiren_Barhate_CV.pdf"
+            download
+            className="inline-flex items-center gap-2 mt-10 px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-2xl text-lg shadow-xl"
+          >
+            <Download /> Download CV
+          </a>
+        </motion.div>
+      </section>
 
-body{
-  background:#060006;
-  color:#fff;
-  font-family:'Poppins',sans-serif;
-  overflow:hidden;
-}
+      {/* WORK EXPERIENCE */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-4xl font-semibold mb-12 flex items-center gap-3">
+          <Hammer /> Work Experience
+        </motion.h2>
 
-/* scenes */
-.scene{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:40px 24px;
-  opacity:0;
-  pointer-events:none;
-}
+        <div className="space-y-10">
+          <div className="bg-slate-800 rounded-2xl p-8 shadow-xl">
+            <h3 className="text-2xl font-semibold">Site Engineer</h3>
+            <p className="text-slate-400">Mahalaxmi Builders and Developers · Jalgaon, India</p>
+            <p className="text-slate-500 mb-4">July 2021 – December 2021</p>
+            <ul className="list-disc list-inside text-slate-300 space-y-2">
+              <li>Supervised day-to-day construction activities including groundwork, drainage, and structural works.</li>
+              <li>Ensured execution as per approved drawings, specifications, schedules, and safety standards.</li>
+              <li>Planned daily site activities based on manpower, materials, and work priorities.</li>
+              <li>Maintained DPRs, measurement records, inspection reports, and material approvals.</li>
+              <li>Coordinated with subcontractors, vendors, and site workforce for smooth execution.</li>
+              <li>Supported safety practices including PPE usage, toolbox talks, and incident reporting.</li>
+            </ul>
+          </div>
 
-.scene.active{
-  opacity:1;
-  pointer-events:auto;
-}
+          <div className="bg-slate-800 rounded-2xl p-8 shadow-xl">
+            <h3 className="text-2xl font-semibold">Civil Engineering & Sustainable Infrastructure Insight (CPD)</h3>
+            <p className="text-slate-400">Curtins · United Kingdom</p>
+            <p className="text-slate-500 mb-4">July 2023 – September 2023</p>
+            <ul className="list-disc list-inside text-slate-300 space-y-2">
+              <li>Supported construction planning, material research, and compliance studies.</li>
+              <li>Gained exposure to BIM workflows, CDM regulations, and QA/QC processes.</li>
+              <li>Assisted in sustainability-focused studies including drainage systems and infrastructure safety.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-/* text */
-h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.6rem,7vw,4.8rem);
-  background:linear-gradient(135deg,#ff2f6d,#ff9aa2);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
+      {/* SKILLS */}
+      <section className="bg-[url('https://images.unsplash.com/photo-1523413651479-597eb2da0ad6')] bg-cover bg-center relative">
+        <div className="absolute inset-0 bg-slate-900/90" />
+        <div className="relative max-w-6xl mx-auto px-6 py-24">
+          <h2 className="text-4xl font-semibold mb-12 flex items-center gap-3"><Layers /> Skills</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              "Site Supervision & Construction Execution",
+              "Drawing Reading & Interpretation",
+              "Quality Control & Inspection",
+              "Safety Management (PPE, Toolbox Talks)",
+              "DPR & Measurement Records",
+              "Manpower & Subcontractor Coordination",
+              "Material Management",
+              "AutoCAD",
+              "BIM Collaborate",
+              "MS Excel, Word & PowerPoint",
+              "Residential & Infrastructure Projects",
+              "Work Progress Tracking"
+            ].map((skill, i) => (
+              <motion.div key={i} whileHover={{ scale: 1.05 }} className="bg-slate-800 p-6 rounded-xl shadow-lg">
+                {skill}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-p{
-  margin-top:20px;
-  font-size:1.2rem;
-  opacity:.9;
-}
+      {/* PROJECTS */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <h2 className="text-4xl font-semibold mb-12 flex items-center gap-3"><Building2 /> Project Work</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {["Flood Impacted Bridge Restoration", "Sustainable Brick Development", "Water Treatment Plant Design"].map((title, i) => (
+            <motion.div key={i} whileHover={{ scale: 1.05 }} className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd" className="h-48 w-full object-cover" />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">{title}</h3>
+                <ul className="text-slate-300 text-sm list-disc list-inside space-y-1">
+                  <li>Design analysis, methodology evaluation, and constructability review.</li>
+                  <li>Focus on safety, sustainability, and cost optimization.</li>
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-.tap{
-  margin-top:50px;
-  font-size:.8rem;
-  letter-spacing:3px;
-  opacity:.5;
-}
+      {/* EDUCATION */}
+      <section className="bg-slate-800">
+        <div className="max-w-6xl mx-auto px-6 py-24">
+          <h2 className="text-4xl font-semibold mb-12 flex items-center gap-3"><GraduationCap /> Education</h2>
+          <ul className="space-y-6 text-slate-300">
+            <li><strong>MSc – Construction Management</strong>, University of Birmingham (2022–2023)</li>
+            <li><strong>B.E. Civil Engineering</strong>, Savitribai Phule Pune University (2018–2021)</li>
+            <li><strong>Diploma in Civil Engineering</strong>, MSBTE Maharashtra (2015–2018)</li>
+          </ul>
+        </div>
+      </section>
 
-/* floating hearts */
-.heart{
-  position:absolute;
-  bottom:-40px;
-  font-size:22px;
-  opacity:.8;
-}
+      {/* CERTIFICATIONS */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <h2 className="text-4xl font-semibold mb-12 flex items-center gap-3"><Award /> Certifications</h2>
+        <ul className="grid md:grid-cols-2 gap-6 text-slate-300">
+          <li>PMP – Project Management Professional</li>
+          <li>Level 1 Health & Safety in Construction Environment</li>
+          <li>Level 2 Asbestos Awareness</li>
+          <li>Level 2 Utility Avoidance & Buried Services</li>
+          <li>Level 2 Green Ambassador – Construction Industry</li>
+        </ul>
+      </section>
 
-/* kiss emoji */
-.kiss{
-  position:absolute;
-  font-size:60px;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  opacity:0;
-  pointer-events:none;
-}
-
-/* fireworks */
-.firework{
-  position:absolute;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:#ff9aa2;
-  pointer-events:none;
-}
-
-/* pulse heart */
-.pulse-heart{
-  display:inline-block;
-  animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.25)}
-  100%{transform:scale(1)}
-}
-</style>
-</head>
-
-<body>
-
-<!-- MUSIC -->
-<audio id="music" preload="auto" loop>
-  <source src="https://cdn.pixabay.com/download/audio/2023/02/14/audio_2b1a8f9d9e.mp3">
-</audio>
-
-<!-- SCENES -->
-<div class="scene active">
-  <div>
-    <h1>Sakshi ✨</h1>
-    <p>I wasn’t looking for this.</p>
-    <div class="tap">TAP</div>
-  </div>
-</div>
-
-<div class="scene">
-  <div>
-    <h1>Then you appeared 💖</h1>
-    <p>And everything slowed.</p>
-    <div class="tap">TAP</div>
-  </div>
-</div>
-
-<div class="scene">
-  <div>
-    <h1>Every glance lingered 💏</h1>
-    <p>Like it wanted more.</p>
-    <div class="tap">TAP</div>
-  </div>
-</div>
-
-<div class="scene">
-  <div>
-    <h1>I fell — softly 🌸</h1>
-    <p>Without fear.</p>
-    <div class="tap">TAP</div>
-  </div>
-</div>
-
-<div class="scene">
-  <div>
-    <h1>This is us <span class="pulse-heart">❤️</span></h1>
-    <p>Quiet. Certain. Forever.</p>
-    <div class="tap">TAP</div>
-  </div>
-</div>
-
-<!-- FINAL SCENE -->
-<div class="scene">
-  <div>
-    <h1>I Love You Sakshi 🎆</h1>
-    <p>Happy Birthday 🎂 & Valentine’s Day 💞</p>
-  </div>
-</div>
-
-<!-- Kiss -->
-<div class="kiss">💋💏</div>
-
-<script>
-const scenes = document.querySelectorAll('.scene');
-const music = document.getElementById('music');
-const kiss = document.querySelector('.kiss');
-let index = 0;
-
-/* show scene animation */
-function showScene(i){
-  scenes.forEach(s => s.classList.remove('active'));
-  scenes[i].classList.add('active');
-
-  gsap.fromTo(
-    scenes[i].children[0],
-    {opacity:0, y:50, scale:.95},
-    {opacity:1, y:0, scale:1, duration:1.2, ease:"power3.out"}
+      {/* FOOTER */}
+      <footer className="bg-black py-10 text-center text-slate-500">
+        © 2026 Dhiren Barhate · Civil / Construction Engineering Portfolio
+      </footer>
+    </div>
   );
-
-  if(i === scenes.length - 1){
-    fireworkBurst();
-  }
 }
-
-/* tap navigation */
-document.body.addEventListener('click', () => {
-
-  if(index === 0){
-    music.volume = 0.6;
-    music.play().catch(()=>{});
-  }
-
-  if(index === scenes.length - 1){
-    kissAnimation();
-    return;
-  }
-
-  index = Math.min(index + 1, scenes.length - 1);
-  showScene(index);
-});
-
-/* floating hearts synced */
-setInterval(() => {
-  const h = document.createElement('div');
-  h.className = 'heart';
-  h.textContent = '❤️';
-  h.style.left = Math.random() * 100 + 'vw';
-  document.body.appendChild(h);
-
-  gsap.to(h, {
-    y: -window.innerHeight - 100,
-    scale: 1.5,
-    duration: 1.8,
-    ease: "power1.out",
-    onComplete: () => h.remove()
-  });
-}, 600);
-
-/* kiss animation */
-function kissAnimation(){
-  gsap.fromTo(
-    kiss,
-    {scale:0, opacity:0},
-    {scale:1.3, opacity:1, duration:.6, ease:"back.out"}
-  );
-
-  gsap.to(kiss, {opacity:0, delay:1.2, duration:.6});
-}
-
-/* fireworks burst */
-function fireworkBurst(){
-  for(let i=0;i<40;i++){
-    const f = document.createElement('div');
-    f.className = 'firework';
-    f.style.left = '50%';
-    f.style.top = '50%';
-    document.body.appendChild(f);
-
-    gsap.to(f, {
-      x: gsap.utils.random(-300,300),
-      y: gsap.utils.random(-300,300),
-      scale: gsap.utils.random(1,2),
-      opacity: 0,
-      duration: 1.6,
-      ease: "power3.out",
-      onComplete: () => f.remove()
-    });
-  }
-}
-
-/* start */
-showScene(0);
-</script>
-
-</body>
-</html>
