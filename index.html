@@ -2,116 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Open Your Letter 💌</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="envelope">
-  <div class="letter">
-    <h1>💌 A Special Surprise Awaits 💌</h1>
-    <button onclick="window.location.href='wishes.html'">
-      Open the Letter
-    </button>
-  </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
   <title>Happy Birthday & Valentine’s Day</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Cursive', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background: #ffdde1;
+      color: #d6336c;
+    }
+    .page {
+      display: none;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .active {
+      display: flex;
+    }
+    .letter {
+      background: white;
+      padding: 40px;
+      border: 2px solid #d6336c;
+      border-radius: 15px;
+      box-shadow: 0 0 20px pink;
+    }
+    button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: #d6336c;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .photos img {
+      width: 200px;
+      margin: 10px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px pink;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+  </style>
 </head>
-<body class="wishes">
-  <h1>Happy Birthday, My Love 🎂</h1>
-  <h2>And Happy Valentine’s Day ❤️</h2>
-  <p>You are my everything, today and always. 💕</p>
-
-  <div class="photos">
-    <img src="yourphoto1.jpg" alt="Us together">
-    <img src="yourphoto2.jpg" alt="Memories">
+<body>
+  <!-- Page 1: Envelope -->
+  <div id="page1" class="page active">
+    <div class="letter">
+      <h1>💌 A Special Surprise Awaits 💌</h1>
+      <button onclick="showPage2()">Open the Letter</button>
+    </div>
   </div>
 
-  <canvas id="hearts"></canvas>
-  <script src="script.js"></script>
+  <!-- Page 2: Wishes -->
+  <div id="page2" class="page">
+    <h1>Happy Birthday, My Love 🎂</h1>
+    <h2>And Happy Valentine’s Day ❤️</h2>
+    <p>You are my everything, today and always. 💕</p>
+    <div class="photos">
+      <img src="photo1.jpg" alt="Us together">
+      <img src="photo2.jpg" alt="Memories">
+    </div>
+    <canvas id="hearts"></canvas>
+  </div>
+
+  <script>
+    function showPage2() {
+      document.getElementById('page1').classList.remove('active');
+      document.getElementById('page2').classList.add('active');
+      startHearts();
+    }
+
+    function startHearts() {
+      const canvas = document.getElementById("hearts");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let hearts = [];
+      function Heart(x, y, size, speed) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.speed = speed;
+      }
+      function drawHeart(h) {
+        ctx.fillStyle = "rgba(255,0,100,0.6)";
+        ctx.beginPath();
+        ctx.moveTo(h.x, h.y);
+        ctx.bezierCurveTo(h.x - h.size, h.y - h.size,
+                          h.x - h.size, h.y + h.size,
+                          h.x, h.y + h.size);
+        ctx.bezierCurveTo(h.x + h.size, h.y + h.size,
+                          h.x + h.size, h.y - h.size,
+                          h.x, h.y);
+        ctx.fill();
+      }
+      function animate() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        hearts.forEach(h => {
+          h.y -= h.speed;
+          if(h.y < -50) {
+            h.y = canvas.height + Math.random()*100;
+            h.x = Math.random()*canvas.width;
+          }
+          drawHeart(h);
+        });
+        requestAnimationFrame(animate);
+      }
+      for(let i=0;i<30;i++){
+        hearts.push(new Heart(Math.random()*canvas.width,
+                              canvas.height+Math.random()*500,
+                              10+Math.random()*20,
+                              1+Math.random()*2));
+      }
+      animate();
+    }
+  </script>
 </body>
 </html>
-body {
-  font-family: 'Cursive', sans-serif;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  background: #ffdde1;
-  color: #d6336c;
-}
-
-.envelope {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.letter {
-  background: white;
-  padding: 40px;
-  border: 2px solid #d6336c;
-  border-radius: 15px;
-  box-shadow: 0 0 20px pink;
-}
-
-button {
-  margin-top: 20px;
-  padding: 15px 30px;
-  font-size: 1.2em;
-  background: #d6336c;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.photos img {
-  width: 200px;
-  margin: 10px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px pink;
-}
-const canvas = document.getElementById("hearts");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let hearts = [];
-function Heart(x, y, size, speed) {
-  this.x = x;
-  this.y = y;
-  this.size = size;
-  this.speed = speed;
-}
-function drawHeart(h) {
-  ctx.fillStyle = "rgba(255,0,100,0.6)";
-  ctx.beginPath();
-  ctx.moveTo(h.x, h.y);
-  ctx.bezierCurveTo(h.x - h.size, h.y - h.size,
-                    h.x - h.size, h.y + h.size,
-                    h.x, h.y + h.size);
-  ctx.bezierCurveTo(h.x + h.size, h.y + h.size,
-                    h.x + h.size, h.y - h.size,
-                    h.x, h.y);
-  ctx.fill();
-}
-function animate() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  hearts.forEach(h => {
-    h.y -= h.speed;
-    drawHeart(h);
-  });
-  requestAnimationFrame(animate);
-}
-for(let i=0;i<30;i++){
-  hearts.push(new Heart(Math.random()*canvas.width,
-                        canvas.height+Math.random()*500,
-                        10+Math.random()*20,
-                        1+Math.random()*2));
-}
-animate();
